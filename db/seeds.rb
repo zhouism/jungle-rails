@@ -132,5 +132,36 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## PRODUCTS
+
+puts "Finding or Creating product reviews"
+
+pro1 = Product.find_or_create_by! name: 'Optimal Sleeping Bed'
+pro2 = Product.find_or_create_by! name: 'Red Bookshelf'
+pro3 = Product.find_or_create_by! name: 'Electric Chair'
+
+## REVIEWS
+
+puts "Creating Reviews ..."
+
+Review.destroy_all
+
+pro1.reviews.create!({
+  user_id: 1,
+  description: 'meh',
+  rating: 4
+})
+
+pro2.reviews.create!({
+  user_id: 1,
+  description: 'so red',
+  rating: 4
+})
+
+pro3.reviews.create!({
+  user_id: 1,
+  description: 'shocking',
+  rating: 5
+})
 
 puts "DONE!"
