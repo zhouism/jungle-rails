@@ -23,24 +23,26 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           
-          <% if @current_user%>
+          <% if current_user%>
           <dt>Submit a Review</dt>
             <%= form_for ([@product, Review.new]) do |f| %>
             <dd><%= f.text_area :description %></dd>
             <dd><%= f.select :rating, [1, 2, 3, 4, 5] %></dd>
             <dd><%= submit_tag "Submit" %></dd>
             <% end %>
-
+          <% end %>
+          
           <dt>Reviews</dt>
             <% @review.each do |review| %>
             <dd> Rating: <%= review.rating %></dd>
             <dd> Description: <%= review.description %></dd>
             <% end %>
-
+          
         </dl>
+        
       </div>
     </div>
-
+  
   </article>
 
 </section>
